@@ -1,0 +1,110 @@
+{
+  "retrieval": [
+    {
+      "label": "Keyword (BM25)",
+      "mode": "keyword",
+      "cases": 50,
+      "hitAt1": 0.5,
+      "hitAt3": 0.5952380952380952,
+      "hitAt5": 0.7380952380952381,
+      "mrr": 0.5809523809523809,
+      "abstainAccuracy": 0.75,
+      "falseAbstain": 0.19047619047619047,
+      "byKind": {
+        "direct": {
+          "hitAt1": 0.75,
+          "hitAt3": 0.85,
+          "n": 20
+        },
+        "paraphrase": {
+          "hitAt1": 0.2727272727272727,
+          "hitAt3": 0.36363636363636365,
+          "n": 22
+        }
+      }
+    },
+    {
+      "label": "Semantic (hashing baseline)",
+      "mode": "semantic",
+      "cases": 50,
+      "hitAt1": 0.3333333333333333,
+      "hitAt3": 0.5,
+      "hitAt5": 0.5714285714285714,
+      "mrr": 0.423015873015873,
+      "abstainAccuracy": 0.375,
+      "falseAbstain": 0.23809523809523808,
+      "byKind": {
+        "direct": {
+          "hitAt1": 0.6,
+          "hitAt3": 0.8,
+          "n": 20
+        },
+        "paraphrase": {
+          "hitAt1": 0.09090909090909091,
+          "hitAt3": 0.22727272727272727,
+          "n": 22
+        }
+      }
+    },
+    {
+      "label": "Semantic (MiniLM)",
+      "mode": "semantic",
+      "cases": 50,
+      "hitAt1": 0.7857142857142857,
+      "hitAt3": 0.9761904761904762,
+      "hitAt5": 0.9761904761904762,
+      "mrr": 0.8650793650793651,
+      "abstainAccuracy": 0.875,
+      "falseAbstain": 0.023809523809523808,
+      "byKind": {
+        "direct": {
+          "hitAt1": 0.9,
+          "hitAt3": 1,
+          "n": 20
+        },
+        "paraphrase": {
+          "hitAt1": 0.6818181818181818,
+          "hitAt3": 0.9545454545454546,
+          "n": 22
+        }
+      }
+    },
+    {
+      "label": "Hybrid (BM25 + MiniLM, RRF)",
+      "mode": "hybrid",
+      "cases": 50,
+      "hitAt1": 0.6428571428571429,
+      "hitAt3": 0.8571428571428571,
+      "hitAt5": 0.8809523809523809,
+      "mrr": 0.740079365079365,
+      "abstainAccuracy": 0.875,
+      "falseAbstain": 0.047619047619047616,
+      "byKind": {
+        "direct": {
+          "hitAt1": 0.85,
+          "hitAt3": 1,
+          "n": 20
+        },
+        "paraphrase": {
+          "hitAt1": 0.45454545454545453,
+          "hitAt3": 0.7272727272727273,
+          "n": 22
+        }
+      }
+    }
+  ],
+  "answers": [
+    {
+      "label": "Extractive, keyword overlap",
+      "factRecall": 0.7142857142857143,
+      "declined": 0.875,
+      "n": 42
+    },
+    {
+      "label": "Extractive, semantic sentence ranking",
+      "factRecall": 0.7619047619047619,
+      "declined": 0.875,
+      "n": 42
+    }
+  ]
+}
