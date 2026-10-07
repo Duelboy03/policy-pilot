@@ -1,0 +1,39 @@
+{
+  "name": "policy-pilot",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Ask your HR handbook anything: retrieval-augmented answers with citations, hybrid search and an evaluation harness.",
+  "license": "MIT",
+  "author": "Zaid Nayeem",
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -k -n server,web -c yellow,blue \"npm run dev -w @policypilot/server\" \"VITE_ENGINE=server npm run dev -w @policypilot/web\"",
+    "dev:demo": "npm run dev -w @policypilot/web",
+    "build": "npm run build -w @policypilot/web",
+    "build:index": "tsx packages/core/scripts/build-index.ts",
+    "eval": "tsx packages/core/scripts/eval.ts",
+    "typecheck": "tsc -p packages/core && tsc -p apps/server && tsc -p apps/web",
+    "lint": "oxlint packages/core/src packages/core/scripts apps/server/src apps/web/src e2e",
+    "test": "vitest run",
+    "coverage": "vitest run --coverage",
+    "test:e2e": "playwright test e2e/app.spec.ts",
+    "screenshots": "SCREENSHOTS=1 playwright test e2e/screenshots.spec.ts"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@types/node": "^26.6.4",
+    "@vitest/coverage-v8": "^5.0.3",
+    "concurrently": "^10.0.5",
+    "jsdom": "^30.1.2",
+    "oxlint": "^1.87.0",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.3"
+  }
+}

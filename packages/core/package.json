@@ -1,0 +1,16 @@
+{
+  "name": "@policypilot/core",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./node": "./src/node.ts",
+    "./data": "./src/data.ts",
+    "./transformers": "./src/transformers.ts"
+  },
+  "dependencies": {
+    "@huggingface/transformers": "^4.3.1"
+  }
+}
